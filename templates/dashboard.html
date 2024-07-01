@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Tela Inicial</title>
+</head>
+<body>
+    <h1>Tela Inicial</h1>
+    {% if 'teste_tela_comum' in permissions %}
+        <a href="#">Link que aparece para todos</a><br>
+    {% endif %}
+    {% if 'teste_link_admin' in permissions %}
+        <a href="#">Link apenas admin</a><br>
+    {% endif %}
+    <a href="{{ url_for('logout') }}">Sair</a>
+</body>
+</html>
