@@ -3,15 +3,39 @@
 <head>
     <meta charset="UTF-8">
     <title>Tela Inicial</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.tailwindcss.com"></script>
 </head>
-<body>
-    <h1>Tela Inicial</h1>
-    {% if 'teste_tela_comum' in permissions %}
-        <a href="#">Link que aparece para todos</a><br>
-    {% endif %}
-    {% if 'teste_link_admin' in permissions %}
-        <a href="#">Link apenas admin</a><br>
-    {% endif %}
-    <a href="{{ url_for('logout') }}">Sair</a>
+<body class="bg-gray-100">
+<nav class="bg-white shadow-lg">
+    <div class="max-w-6xl mx-auto px-4">
+        <div class="flex justify-between">
+            <div class="flex space-x-7">
+            </div>
+            <!-- Primary Navbar items -->
+            <div class="hidden md:flex items-center space-x-3 ">
+                <a href="{{ url_for('logout') }}"
+                   class="py-4 px-2 text-gray-500 font-semibold hover:text-blue-500 transition duration-300">Sair</a>
+            </div>
+        </div>
+    </div>
+</nav>
+<div class="py-12">
+    <div class="max-w-4xl mx-auto sm:px-6 lg:px-8">
+        <div class="bg-white shadow-sm sm:rounded-lg">
+            <div class="p-6 bg-white border-b border-gray-200">
+                <h1 class="text-2xl font-semibold text-gray-900">Tela Inicial</h1>
+                <div class="mt-4">
+                    {% if 'teste_link_admin' in permissions %}
+                    <a href="/tela_admin" class="block mt-2 text-md text-blue-500 hover:text-blue-700">Link apenas admin</a>
+                    {% endif %}
+                    {% if 'teste_tela_comum' in permissions %}
+                    <a href="/tela_comum" class="block mt-2 text-md text-blue-500 hover:text-blue-700">Link que aparece para todos</a>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
 </body>
 </html>

@@ -60,6 +60,14 @@ def logout():
     session.pop('user_id', None)
     return redirect(url_for('login'))
 
+@app.route('/tela_admin')
+def tela_admin():
+    return render_template('tela_admin.html')
+
+@app.route('/tela_comum')
+def tela_comum():
+    return render_template('tela_comum.html')
+
 
 if __name__ == '__main__':
     app.run(debug=True)
